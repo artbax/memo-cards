@@ -1,0 +1,59 @@
+.draggable
+{
+   width: 274px; 
+   height: 286px;
+   background-image: url('../img/memo4.png');
+   margin: 5px 5px 5px 5px;
+   float: left;
+   
+
+}
+
+.memo
+{
+   width: 250px;
+   height: 270px;
+   padding-top: 35px;
+   padding-left: 20px;
+   overflow: hidden;
+   font: 400 26px/0.8 'Cookie', Helvetica, sans-serif;
+   color: #000;
+   text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+   
+}
+
+.small
+{
+   font-size: 14px;
+   float: right;
+   margin-right: 5px;
+}
+
+.addcomment
+{
+   width: 250px;
+   height: 250px;
+   margin-top: 10px;
+   float: left;
+}
+
+.comments
+{
+   width: 222px;
+   height: 237px;
+   background-image: url('../img/memo2.png');
+   margin: 5px 5px 5px 5px;
+   float: left;
+    
+}
+
+.memocomment
+{
+  width: 200px;
+  height: 210px;
+  padding-top: 35px;
+  padding-left: 20px;
+  font: 400 18px/0.8 'Great Vibes', Helvetica, sans-serif;
+  color: #000;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+}

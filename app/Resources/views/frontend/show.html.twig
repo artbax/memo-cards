@@ -1,0 +1,44 @@
+
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    
+    <div class="draggable">
+         <div class="memo">
+                <span class="small">{% if yellowCard.created %}{{ yellowCard.created|date('Y-m-d H:i:s') }}{% endif %}</span>
+                <span class="small">{{ yellowCard.author }}</span>
+                {{ yellowCard.body | raw }}
+         </div>
+                
+                <a href="{{ path('frontend') }}"><button class="btn btn-warning">Back to the list</button></a>
+   </div>
+              
+   <div class="addcomment">
+         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			<form action="{{ path('frontend_add_comment', {'id' : yellowCard.id } ) }}" method="post">
+		    <textarea name="comment"></textarea>
+		    <input type="submit" value="Add comment" />
+		    </form>
+		 {% endif %}
+   </div>
+   
+                
+       
+    
+    
+    
+
+   
+    {% for comment in comments %}
+        <div class="comments">
+            <b>{{ loop.index }}</b>
+             <div class="memocomment">
+                 {{ comment.body | raw }}
+		         {{ comment.created|date('Y-m-d H:i:s') }}
+		         {{ comment.author }}
+             </div>
+         </div>
+    {% endfor %}
+  
+   
+{% endblock %}

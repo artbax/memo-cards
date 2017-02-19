@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+     
+            
+    <a href="{{ path('yellowcard_new') }}"><button class="btn btn-info">Create a new memo</button></a>
+        
+    <table class="table table-hover">
+        <thead>
+            <tr class="info">
+                <th>Id</th>
+                <th>Body</th>
+                <th>Author</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for yellowCard in yellowCards %}
+            <tr class="active">
+                <td><button class="btn btn-info">{{ loop.index }}</button></td>
+                <td>{{ yellowCard.body | raw }}</td>
+                <td>{{ yellowCard.author }}</td>
+                <td>{% if yellowCard.created %}{{ yellowCard.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if yellowCard.updated %}{{ yellowCard.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('yellowcard_edit', { 'id': yellowCard.id }) }}"><button class="btn btn-info">edit</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}

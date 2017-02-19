@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Your comments list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="info">
+                <th>Id</th>
+                <th>Body</th>
+                <th>Author</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr class="active">
+                <td><button class="btn btn-info">{{ loop.index }}</button></td>
+                <td>{{ comment.body | raw }}</td>
+                <td>{{ comment.author }}</td>
+                <td>{% if comment.created %}{{ comment.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if comment.updated %}{{ comment.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                   <a href="{{ path('comment_edit', { 'id': comment.id }) }}"><button class="btn btn-info">edit</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

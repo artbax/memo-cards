@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('yellowcard_index') }}"><button class="btn btn-info">Back to the list</button></a>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-info" >Create memo</button>
+    {{ form_end(form) }}
+
+{% endblock %}

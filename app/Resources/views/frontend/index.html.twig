@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    
+      {% for yellowCard in entities %}
+                <div class="draggable">
+                  <div class="memo">
+                    <span class="small"><a href="{{ path('frontend_yellowcard_show', { 'id': yellowCard.id }) }}">View</a></span>
+		            {{ yellowCard.body | raw }}
+		            <b>{{ yellowCard.author }}</b>
+		            <!--<p>{% if yellowCard.created %}{{ yellowCard.created|date('Y-m-d H:i:s') }}{% endif %}</p>-->
+		           
+		            
+		            
+		            
+		            
+                  </div>
+              </div>
+      {% endfor %}
+        
+        
+    
+{% endblock %}
